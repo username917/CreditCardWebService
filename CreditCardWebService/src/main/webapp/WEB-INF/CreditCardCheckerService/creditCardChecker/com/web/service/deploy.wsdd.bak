@@ -1,0 +1,52 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CreditCardCheckerService WSDL service -->
+
+  <service name="CreditCardChecker" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.web.com.creditCardChecker"/>
+      <parameter name="wsdlServiceElement" value="CreditCardCheckerService"/>
+      <parameter name="schemaQualified" value="http://service.web.com.creditCardChecker"/>
+      <parameter name="wsdlServicePort" value="CreditCardChecker"/>
+      <parameter name="className" value="creditCardChecker.com.web.service.CreditCardCheckerSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CreditCardChecker"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="main" qname="operNS:main" xmlns:operNS="http://service.web.com.creditCardChecker" soapAction="" >
+        <parameter qname="pns:args" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getSize" qname="operNS:getSize" xmlns:operNS="http://service.web.com.creditCardChecker" returnQName="retNS:getSizeReturn" xmlns:retNS="http://service.web.com.creditCardChecker" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:d" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getDigit" qname="operNS:getDigit" xmlns:operNS="http://service.web.com.creditCardChecker" returnQName="retNS:getDigitReturn" xmlns:retNS="http://service.web.com.creditCardChecker" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isValid" qname="operNS:isValid" xmlns:operNS="http://service.web.com.creditCardChecker" returnQName="retNS:isValidReturn" xmlns:retNS="http://service.web.com.creditCardChecker" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getPrefix" qname="operNS:getPrefix" xmlns:operNS="http://service.web.com.creditCardChecker" returnQName="retNS:getPrefixReturn" xmlns:retNS="http://service.web.com.creditCardChecker" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:k" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="sumOfDoubleEvenPlace" qname="operNS:sumOfDoubleEvenPlace" xmlns:operNS="http://service.web.com.creditCardChecker" returnQName="retNS:sumOfDoubleEvenPlaceReturn" xmlns:retNS="http://service.web.com.creditCardChecker" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="prefixMatched" qname="operNS:prefixMatched" xmlns:operNS="http://service.web.com.creditCardChecker" returnQName="retNS:prefixMatchedReturn" xmlns:retNS="http://service.web.com.creditCardChecker" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:d" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="sumOfOddPlace" qname="operNS:sumOfOddPlace" xmlns:operNS="http://service.web.com.creditCardChecker" returnQName="retNS:sumOfOddPlaceReturn" xmlns:retNS="http://service.web.com.creditCardChecker" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number" xmlns:pns="http://service.web.com.creditCardChecker" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getSize getPrefix prefixMatched getDigit isValid main sumOfDoubleEvenPlace sumOfOddPlace"/>
+
+  </service>
+</deployment>

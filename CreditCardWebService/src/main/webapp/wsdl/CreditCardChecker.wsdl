@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.web.com.creditCardChecker" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.web.com.creditCardChecker" xmlns:intf="http://service.web.com.creditCardChecker" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.web.com.creditCardChecker" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="main">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="args" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mainResponse">
+    <complexType/>
+   </element>
+   <element name="getSize">
+    <complexType>
+     <sequence>
+      <element name="d" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSizeResponse">
+    <complexType>
+     <sequence>
+      <element name="getSizeReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDigit">
+    <complexType>
+     <sequence>
+      <element name="number" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDigitResponse">
+    <complexType>
+     <sequence>
+      <element name="getDigitReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isValid">
+    <complexType>
+     <sequence>
+      <element name="number" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isValidResponse">
+    <complexType>
+     <sequence>
+      <element name="isValidReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPrefix">
+    <complexType>
+     <sequence>
+      <element name="number" type="xsd:long"/>
+      <element name="k" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPrefixResponse">
+    <complexType>
+     <sequence>
+      <element name="getPrefixReturn" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sumOfDoubleEvenPlace">
+    <complexType>
+     <sequence>
+      <element name="number" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sumOfDoubleEvenPlaceResponse">
+    <complexType>
+     <sequence>
+      <element name="sumOfDoubleEvenPlaceReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="prefixMatched">
+    <complexType>
+     <sequence>
+      <element name="number" type="xsd:long"/>
+      <element name="d" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="prefixMatchedResponse">
+    <complexType>
+     <sequence>
+      <element name="prefixMatchedReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sumOfOddPlace">
+    <complexType>
+     <sequence>
+      <element name="number" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sumOfOddPlaceResponse">
+    <complexType>
+     <sequence>
+      <element name="sumOfOddPlaceReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="isValidResponse">
+
+      <wsdl:part element="impl:isValidResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="prefixMatchedRequest">
+
+      <wsdl:part element="impl:prefixMatched" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDigitRequest">
+
+      <wsdl:part element="impl:getDigit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isValidRequest">
+
+      <wsdl:part element="impl:isValid" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sumOfDoubleEvenPlaceResponse">
+
+      <wsdl:part element="impl:sumOfDoubleEvenPlaceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSizeResponse">
+
+      <wsdl:part element="impl:getSizeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+      <wsdl:part element="impl:mainResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="prefixMatchedResponse">
+
+      <wsdl:part element="impl:prefixMatchedResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="impl:main" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sumOfDoubleEvenPlaceRequest">
+
+      <wsdl:part element="impl:sumOfDoubleEvenPlace" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDigitResponse">
+
+      <wsdl:part element="impl:getDigitResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPrefixResponse">
+
+      <wsdl:part element="impl:getPrefixResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sumOfOddPlaceRequest">
+
+      <wsdl:part element="impl:sumOfOddPlace" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sumOfOddPlaceResponse">
+
+      <wsdl:part element="impl:sumOfOddPlaceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSizeRequest">
+
+      <wsdl:part element="impl:getSize" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPrefixRequest">
+
+      <wsdl:part element="impl:getPrefix" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CreditCardChecker">
+
+      <wsdl:operation name="main">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSize">
+
+         <wsdl:input message="impl:getSizeRequest" name="getSizeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSizeResponse" name="getSizeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDigit">
+
+         <wsdl:input message="impl:getDigitRequest" name="getDigitRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDigitResponse" name="getDigitResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isValid">
+
+         <wsdl:input message="impl:isValidRequest" name="isValidRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isValidResponse" name="isValidResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPrefix">
+
+         <wsdl:input message="impl:getPrefixRequest" name="getPrefixRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPrefixResponse" name="getPrefixResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sumOfDoubleEvenPlace">
+
+         <wsdl:input message="impl:sumOfDoubleEvenPlaceRequest" name="sumOfDoubleEvenPlaceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sumOfDoubleEvenPlaceResponse" name="sumOfDoubleEvenPlaceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="prefixMatched">
+
+         <wsdl:input message="impl:prefixMatchedRequest" name="prefixMatchedRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:prefixMatchedResponse" name="prefixMatchedResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sumOfOddPlace">
+
+         <wsdl:input message="impl:sumOfOddPlaceRequest" name="sumOfOddPlaceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sumOfOddPlaceResponse" name="sumOfOddPlaceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CreditCardCheckerSoapBinding" type="impl:CreditCardChecker">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSize">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSizeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSizeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDigit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDigitRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDigitResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isValid">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isValidRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isValidResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPrefix">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPrefixRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPrefixResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sumOfDoubleEvenPlace">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sumOfDoubleEvenPlaceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sumOfDoubleEvenPlaceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="prefixMatched">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="prefixMatchedRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="prefixMatchedResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sumOfOddPlace">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sumOfOddPlaceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sumOfOddPlaceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CreditCardCheckerService">
+
+      <wsdl:port binding="impl:CreditCardCheckerSoapBinding" name="CreditCardChecker">
+
+         <wsdlsoap:address location="http://localhost:8080/CrunchifyWS/services/CreditCardChecker"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
